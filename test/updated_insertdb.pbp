@@ -1,0 +1,34 @@
+<?php
+	require "dbconnect.php";
+	$name = $_POST["name"];
+	$people_num = $_POST["people_num"];
+	$game_time = $_POST["game_time"];
+	$weight = $_POST["weight"];
+	$description = $_POST["description"];
+	$mechanism = $_POST["my_select"];
+	$collection = $_POST["collection"];
+	$own = $_POST["own"];
+	$wishlist = $_POST["wishlist"];
+	$designer = $_POST["designer"];
+	
+	//判斷有是否有select被選
+	if($mechanism != "")
+	{
+		$mechanism = implode(",", $mechanism);
+		$mechanism = " ".$mechanism;//加入空號讓自己以後可以尋找
+	}
+	//判斷有哪些是否有checkbox被選
+	$status = " ";
+	if($collection == "true")
+	{
+		$status = $status."collection,";
+	}
+	if($own == "true")
+	{
+		$status = $status."own,";
+	}
+	if($wishlist == "true")
+	{
+		$status = $status."wishlist,";
+	}
+?>
